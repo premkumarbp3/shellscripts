@@ -7,6 +7,6 @@ do
     instance_id=$(echo $line | awk '{print $1}')
     if [ $role_profile == "None" ]; then
         echo "going to add the instance profile"
-        aws ec2 associate-iam-instance-profile --iam-instance-profile Name="${PROFILENAME}" --instance-id ${instance_id}
+        aws ec2 associate-iam-instance-profile --iam-instance-profile Name="${PROFILENAME}" --instance-id ${instance_id} --profile myprofile --region myregion
     fi
 done < ./instance_details.txt
